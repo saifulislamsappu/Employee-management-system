@@ -1,0 +1,16 @@
+<?php
+
+$conn=mysqli_connect('localhost','root','','project');
+
+$eid=$_GET['id'];
+
+$date=$_POST['date'];
+$entry=$_POST['entry'];
+$exit=$_POST['exit'];
+
+$updateEmployeeData="UPDATE entryexit SET  date ='$date', entry='$entry',exit='$exit' WHERE eid='$eid'";
+
+if (mysqli_query($conn,$updateEmployeeData)) {
+	header("Location: show_log.php");
+   }
+?>
